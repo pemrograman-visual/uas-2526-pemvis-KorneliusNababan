@@ -1,0 +1,67 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="4.2">
+    <attributes>
+        <attribute name="name" value="SOAL 3 UAS"/>
+        <attribute name="authors" value="LENOVO"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2025-12-17 04:26:16 PM"/>
+        <attribute name="created" value="TEVOT1ZPO0xBUFRPUC1BMlNBTTNNMDsyMDI1LTEyLTE3OzA0OjE3OjI3IFBNOzI3Nzc="/>
+        <attribute name="edited" value="TEVOT1ZPO0xBUFRPUC1BMlNBTTNNMDsyMDI1LTEyLTE3OzA0OjIxOjAxIFBNOzQ7TEVOT1ZPO0xBUFRPUC1BMlNBTTNNMDsyMDI1LTEyLTE3OzA0OjExOjIwIFBNO3NvYWwzLmZwcmc7NjcxNg=="/>
+        <attribute name="edited" value="TEVOT1ZPO0xBUFRPUC1BMlNBTTNNMDsyMDI1LTEyLTE3OzA0OjI2OjE2IFBNOzE7Mjg4Mw=="/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="n, i, m, grandTotal" type="Integer" array="False" size=""/>
+            <declare name="statusAkhir" type="String" array="False" size=""/>
+            <assign variable="grandTotal" expression="0"/>
+            <output expression="&quot;Silahkan Anda Masukkan Jumlah Penghuni&quot;" newline="True"/>
+            <input variable="n"/>
+            <declare name="namaArr" type="String" array="True" size="n"/>
+            <declare name="subTotalArr" type="Integer" array="True" size="n"/>
+            <for variable="i" start="0" end="n - 1" direction="inc" step="1">
+                <input variable="namaArr[i]"/>
+                <input variable="m"/>
+                <assign variable="subTotalArr[i]" expression="HitungSubTotal(m)"/>
+                <assign variable="grandTotal" expression="grandTotal + subTotalArr[i]"/>
+            </for>
+            <output expression="&quot;Total konsumsi:&quot;" newline="True"/>
+            <for variable="i" start="0" end="n - 1" direction="inc" step="1">
+                <output expression="namaArr[i] &amp; &quot; = &quot; &amp; subTotalArr[i] &amp; &quot; wh&quot;" newline="True"/>
+            </for>
+            <output expression="&quot;&quot;" newline="True"/>
+            <output expression="&quot;Total konsumsi kamar = &quot; &amp; grandTotal &amp; &quot; wh&quot;" newline="True"/>
+            <assign variable="statusAkhir" expression="CekStatus(grandTotal)"/>
+            <output expression="statusAkhir" newline="True"/>
+        </body>
+    </function>
+    <function name="CekStatus" type="String" variable="Pesan">
+        <parameters>
+            <parameter name="TotalWh" type="Integer" array="False"/>
+        </parameters>
+        <body>
+            <declare name="pesan" type="String" array="False" size=""/>
+            <if expression="totalWh &lt;= 1000">
+                <then>
+                    <assign variable="pesan" expression="&quot;Konsumsi masih dalam batas wajar.&quot;"/>
+                </then>
+                <else>
+                    <assign variable="pesan" expression="&quot;Konsumsi berlebihan, harap hemat energi.&quot;"/>
+                </else>
+            </if>
+        </body>
+    </function>
+    <function name="HitungSubTotal" type="Integer" variable="Total">
+        <parameters>
+            <parameter name="jumlahBarang" type="Integer" array="False"/>
+        </parameters>
+        <body>
+            <declare name="j, watt, total" type="Integer" array="False" size=""/>
+            <assign variable="total" expression="0"/>
+            <for variable="j" start="1" end="jumlahBarang" direction="inc" step="1">
+                <input variable="watt"/>
+                <assign variable="total" expression="total + watt"/>
+            </for>
+        </body>
+    </function>
+</flowgorithm>

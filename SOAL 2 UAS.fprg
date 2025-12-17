@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="4.2">
+    <attributes>
+        <attribute name="name" value="SOAL 2 UAS"/>
+        <attribute name="authors" value="LENOVO"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2025-12-17 04:01:26 PM"/>
+        <attribute name="created" value="TEVOT1ZPO0xBUFRPUC1BMlNBTTNNMDsyMDI1LTEyLTE3OzAzOjU2OjQ5IFBNOzI3ODM="/>
+        <attribute name="edited" value="TEVOT1ZPO0xBUFRPUC1BMlNBTTNNMDsyMDI1LTEyLTE3OzAzOjU2OjU2IFBNOzE7QVNVUztMQVBUT1AtVUhTREc2TFU7MjAyNS0xMi0xNzswODowODowNyBBTTtzb2FsIDIuZnByZzs2Njg4"/>
+        <attribute name="edited" value="TEVOT1ZPO0xBUFRPUC1BMlNBTTNNMDsyMDI1LTEyLTE3OzA0OjAxOjI2IFBNOzE7Mjg3Nw=="/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="n, i, stokAwal, terjual, sisa" type="Integer" array="False" size=""/>
+            <declare name="nama, status" type="String" array="False" size=""/>
+            <input variable="n"/>
+            <for variable="i" start="1" end="n" direction="inc" step="1">
+                <output expression="&quot;Masukkan Nama Barang&quot;" newline="True"/>
+                <input variable="nama"/>
+                <input variable="stokAwal"/>
+                <input variable="terjual"/>
+                <assign variable="sisa" expression="stokAwal-terjual"/>
+                <if expression="sisa &gt; 5">
+                    <then>
+                        <assign variable="status" expression="&quot;Stok aman&quot;"/>
+                    </then>
+                    <else>
+                        <if expression="sisa &gt;= 1">
+                            <then>
+                                <assign variable="status" expression="&quot;Stok menipis&quot;"/>
+                            </then>
+                            <else>
+                                <assign variable="status" expression="&quot;Habis, segera restock!&quot;"/>
+                            </else>
+                        </if>
+                    </else>
+                </if>
+                <output expression="nama" newline="True"/>
+                <output expression="stokAwal" newline="True"/>
+                <output expression="terjual" newline="True"/>
+                <output expression="sisa" newline="True"/>
+                <output expression="status" newline="True"/>
+                <output expression="&quot;Terimakasih telah menggunakan Program ini&quot;" newline="True"/>
+            </for>
+        </body>
+    </function>
+</flowgorithm>
